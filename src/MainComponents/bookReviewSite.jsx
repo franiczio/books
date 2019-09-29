@@ -7,7 +7,7 @@ class BookReviewSite extends Component {
   render() {
     return (
       <Fragment>
-        <BookReview />
+        <BookReview history={this.props.history} />
       </Fragment>
     );
   }

@@ -4,12 +4,17 @@ class BookReview extends Component {
   constructor(props) {
     super(props);
   }
+
+  goBackToBooksSite = () => {
+    this.props.history.push('/');
+  };
+
   render() {
     return (
       <Fragment>
         <div>
           <h1>bookName</h1>
-          <a>BACK</a>
+          <a onClick={this.goBackToBooksSite}>BACK</a>
         </div>
         <div>
           <form>

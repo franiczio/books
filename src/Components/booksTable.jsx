@@ -4,12 +4,17 @@ class BooksTable extends Component {
   constructor(props) {
     super(props);
   }
+
+  goToCreator = () => {
+    this.props.history.push('/books/create');
+  };
+
   render() {
     return (
       <Fragment>
         <div>
           <h1>Books</h1>
-          <a>ADD</a>
+          <a onClick={this.goToCreator}>ADD</a>
         </div>
         <table>
           <thead>

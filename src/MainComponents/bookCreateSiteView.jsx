@@ -7,7 +7,7 @@ class CreateSite extends Component {
   render() {
     return (
       <Fragment>
-        <BookCreator></BookCreator>
+        <BookCreator history={this.props.history} />
       </Fragment>
     );
   }
