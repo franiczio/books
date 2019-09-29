@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import SingleReview from './singleReview';
 class BookReviews extends Component {
   constructor(props) {
     super(props);
@@ -17,15 +18,10 @@ class BookReviews extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>text1</td>
-                <td>text2</td>
-                <td>text3</td>
-                <td>text4</td>
-                <td>
-                  <button>DELETE</button>
-                </td>
-              </tr>
+              <SingleReview />
+              <SingleReview />
+              <SingleReview />
+              <SingleReview />
             </tbody>
           </table>
         </div>

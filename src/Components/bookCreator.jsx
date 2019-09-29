@@ -14,19 +14,34 @@ class BookCreator extends Component {
         <div>
           <form>
             <div>
-              <label>title</label>
+              <fieldset>
+                <legend></legend>
+                <input placeholder="title"></input>
+              </fieldset>
             </div>
             <div>
-              <label>isbn</label>
+              <fieldset>
+                <input placeholder="isbn"></input>
+                <legend></legend>
+              </fieldset>
             </div>
             <div>
-              <label>description</label>
+              <fieldset>
+                <legend></legend>
+                <input placeholder="description"></input>
+              </fieldset>
             </div>
             <div>
-              <label>author</label>
+              <fieldset>
+                <legend></legend>
+                <input placeholder="author"></input>
+              </fieldset>
             </div>
             <div>
-              <label></label>
+              <fieldset>
+                <legend></legend>
+                <input placeholder="12-21-2019"></input>
+              </fieldset>
             </div>
             <button>CREATE</button>
           </form>

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Book from './book';
-class BookTable extends Component {
+class BooksTable extends Component {
   constructor(props) {
     super(props);
   }
@@ -32,4 +32,4 @@ class BookTable extends Component {
   }
 }
 
-export default BookTable;
+export default BooksTable;
