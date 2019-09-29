@@ -7,6 +7,10 @@ class BookTable extends Component {
   render() {
     return (
       <Fragment>
+        <div>
+          <h1>Books</h1>
+          <a>ADD</a>
+        </div>
         <table>
           <thead>
             <tr>

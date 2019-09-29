@@ -10,7 +10,6 @@ function App() {
       </Card>
       <Card>
         <BookTable></BookTable>
-        <Typography>Hello books!</Typography>
       </Card>
     </Fragment>
   );
