@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Card, CardContent, CardHeader, Typography } from '@material-ui/core';
 import BookTable from './Components/booksTable';
 function App() {
   return (
-    <Card>
-      <CardHeader title="Books app" />
-      <CardContent>
+    <Fragment>
+      <Card>
+        <CardHeader title="Books app" />
+        <CardContent></CardContent>
+      </Card>
+      <Card>
         <BookTable></BookTable>
         <Typography>Hello books!</Typography>
-      </CardContent>
-    </Card>
+      </Card>
+    </Fragment>
   );
 }
 

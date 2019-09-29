@@ -18,6 +18,9 @@ class BookTable extends Component {
           </thead>
           <tbody>
             <Book></Book>
+            <Book></Book>
+            <Book></Book>
+            <Book></Book>
           </tbody>
         </table>
       </Fragment>
