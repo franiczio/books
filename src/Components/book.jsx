@@ -11,8 +11,8 @@ class Book extends Component {
           <td>text2</td>
           <td>text3</td>
           <td>
-            <a>link</a>
-            <button>button</button>
+            <a>SHOW</a>
+            <button>DELETE</button>
           </td>
         </tr>
       </Fragment>
