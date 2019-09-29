@@ -1,14 +1,19 @@
 import React, { Component, Fragment } from 'react';
-class Review extends Component {
+class CreateReview extends Component {
   constructor(props) {
     super(props);
   }
+
+  goBackToBookReview = () => {
+    this.props.history.push('/books/1');
+  };
+
   render() {
     return (
       <Fragment>
         <div>
           <h1>Create review</h1>
-          <a>BACK</a>
+          <a onClick={this.goBackToBookReview}>BACK</a>
         </div>
         <div>
           <form>
@@ -59,4 +64,4 @@ class Review extends Component {
   }
 }
 
-export default Review;
+export default CreateReview;

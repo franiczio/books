@@ -9,6 +9,10 @@ class BookReview extends Component {
     this.props.history.push('/');
   };
 
+  goToReviewCreator = () => {
+    this.props.history.push('/books/1/reviews/create');
+  };
+
   render() {
     return (
       <Fragment>
@@ -63,7 +67,7 @@ class BookReview extends Component {
         </div>
         <div>
           <h1>Book's reviews</h1>
-          <a>CREATE</a>
+          <a onClick={this.goToReviewCreator}>CREATE</a>
         </div>
         <BookReviews />
       </Fragment>

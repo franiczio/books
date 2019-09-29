@@ -26,10 +26,10 @@ class BooksTable extends Component {
             </tr>
           </thead>
           <tbody>
-            <Book></Book>
-            <Book></Book>
-            <Book></Book>
-            <Book></Book>
+            <Book history={this.props.history}></Book>
+            <Book history={this.props.history}></Book>
+            <Book history={this.props.history}></Book>
+            <Book history={this.props.history}></Book>
           </tbody>
         </table>
       </Fragment>
