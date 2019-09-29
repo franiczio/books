@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-class Book extends Component {
+class SingleReview extends Component {
   constructor(props) {
     super(props);
   }
@@ -10,8 +10,8 @@ class Book extends Component {
           <td>text1</td>
           <td>text2</td>
           <td>text3</td>
+          <td>text4</td>
           <td>
-            <a>SHOW</a>
             <button>DELETE</button>
           </td>
         </tr>
@@ -20,4 +20,4 @@ class Book extends Component {
   }
 }
 
-export default Book;
+export default SingleReview;
