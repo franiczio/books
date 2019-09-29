@@ -5,7 +5,34 @@ class BookCreator extends Component {
     super(props);
   }
   render() {
-    return <Fragment></Fragment>;
+    return (
+      <Fragment>
+        <div>
+          <h1>Create book</h1>
+          <a>BACK</a>
+        </div>
+        <div>
+          <form>
+            <div>
+              <label>title</label>
+            </div>
+            <div>
+              <label>isbn</label>
+            </div>
+            <div>
+              <label>description</label>
+            </div>
+            <div>
+              <label>author</label>
+            </div>
+            <div>
+              <label></label>
+            </div>
+            <button>CREATE</button>
+          </form>
+        </div>
+      </Fragment>
+    );
   }
 }
 
