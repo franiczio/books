@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Card, CardContent, CardHeader, Typography } from '@material-ui/core';
 import BookTable from './Components/booksTable';
-import ReviewSite from './MainComponents/reviewSite';
+import BookReviewSite from './MainComponents/bookReviewSite';
 function App() {
   return (
     <Fragment>
@@ -12,7 +12,7 @@ function App() {
       <Card>
         <BookTable></BookTable>
       </Card>
-      <ReviewSite />
+      <BookReviewSite />
     </Fragment>
   );
 }

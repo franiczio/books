@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import BookCreator from './Components/BookCreator';
-class CreateSite extends Component {
+import BookReview from '../Components/bookReview';
+class BookReviewSite extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
       <Fragment>
-        <BookCreator></BookCreator>
+        <BookReview />
       </Fragment>
     );
   }
 }
 
-export default CreateSite;
+export default BookReviewSite;
