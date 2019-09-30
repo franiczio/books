@@ -12,6 +12,7 @@ class BooksTable extends Component {
   }
 
   goToCreator = () => {
+    this.props.resetBooks();
     this.props.history.push('/books/create');
   };
 
@@ -67,6 +68,7 @@ const mapStateToProps = state => {
 };
 const mapActionsToProps = {
   getAllBooks: bookActions.getAllBooks,
+  resetBooks: bookActions.resetAllBooks,
 };
 export default connect(
   mapStateToProps,

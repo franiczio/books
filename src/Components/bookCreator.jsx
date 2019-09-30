@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import * as bookActions from '../Actions/bookAction';
+import { ReactReduxContext, connect } from 'react-redux';
 
 class BookCreator extends Component {
   constructor(props) {
@@ -56,4 +58,13 @@ class BookCreator extends Component {
   }
 }
 
-export default BookCreator;
+const mapStateToProps = state => {
+  return state;
+};
+const mapActionsToProps = {
+  resetBooks: bookActions.resetAllBooks,
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(BookCreator);
