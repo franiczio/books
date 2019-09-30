@@ -9,16 +9,22 @@ class Book extends Component {
     this.goToBookReview = this.goToBookReview.bind(this);
     this.onClickShowBook = this.onClickShowBook.bind(this);
     this.getBookFromServer = this.getBookFromServer.bind(this);
+    this.deleteBookFromServer = this.deleteBookFromServer.bind(this);
   }
 
   goToBookReview = id => {
     this.props.history.push(id);
   };
 
+  deleteBookFromServer = () => {
+    let getPath = 'https://demo.h88.dev' + this.props.id;
+    axios.delete(getPath).then(resp => {});
+    this.props.resetOneBook(this.props.id);
+  };
+
   getBookFromServer = () => {
     let getPath = 'https://demo.h88.dev' + this.props.id;
     axios.get(getPath).then(resp => {
-      console.log();
       this.props.getBook(resp.data['title']);
       this.props.getBook(resp.data['isbn']);
       this.props.getBook(resp.data['description']);
@@ -29,7 +35,9 @@ class Book extends Component {
 
   onClickShowBook = () => {
     this.props.resetBooks();
+    // if (this.props.books.length === 0) {
     this.getBookFromServer();
+    // }
     this.goToBookReview(this.props.id);
   };
 
@@ -42,7 +50,7 @@ class Book extends Component {
           <td>{this.props.author}</td>
           <td>
             <a onClick={this.onClickShowBook}>SHOW</a>
-            <button>DELETE</button>
+            <button onClick={this.deleteBookFromServer}>DELETE</button>
           </td>
         </tr>
       </Fragment>
@@ -54,8 +62,10 @@ const mapStateToProps = state => {
   return state;
 };
 const mapActionsToProps = {
+  getAllBooks: bookActions.getAllBooks,
   resetBooks: bookActions.resetAllBooks,
   getBook: bookActions.getOneBook,
+  resetOneBook: bookActions.resetOneBook,
 };
 export default connect(
   mapStateToProps,

@@ -13,7 +13,7 @@ class BookReview extends Component {
   }
 
   getBookFromServer() {
-    console.log(this.props.books['title']);
+    console.log(this.props.books);
   }
 
   goBackToBooksSite = () => {
@@ -29,7 +29,7 @@ class BookReview extends Component {
     return (
       <Fragment>
         <div>
-          <h1 onClick={this.getBookFromServer}>bookName</h1>
+          <h1 onClick={this.getBookFromServer}>{this.props.books[0]}</h1>
           <a onClick={this.goBackToBooksSite}>BACK</a>
         </div>
         <div>

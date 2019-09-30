@@ -21,6 +21,7 @@ class BooksTable extends Component {
     });
   }
   componentDidMount() {
+    this.props.resetBooks();
     this.getAllBooksFromServer();
   }
 
