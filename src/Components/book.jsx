@@ -12,9 +12,9 @@ class Book extends Component {
     return (
       <Fragment>
         <tr>
-          <td>text1</td>
-          <td>text2</td>
-          <td>text3</td>
+          <td>{this.props.isbn}</td>
+          <td>{this.props.title}</td>
+          <td>{this.props.author}</td>
           <td>
             <a onClick={this.goToBookReview}>SHOW</a>
             <button>DELETE</button>

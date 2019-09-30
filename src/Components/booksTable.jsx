@@ -19,15 +19,13 @@ class BooksTable extends Component {
     axios.get('https://demo.h88.dev/books/').then(resp => {
       this.props.getAllBooks(resp.data['hydra:member']);
     });
-    console.log('state:');
-    console.log(this.props.books);
   }
   componentDidMount() {
     this.getAllBooksFromServer();
   }
 
   showState() {
-    console.log(this.props.books);
+    console.log(this.props.books[0]);
   }
 
   render() {
@@ -47,10 +45,14 @@ class BooksTable extends Component {
             </tr>
           </thead>
           <tbody>
-            <Book history={this.props.history}></Book>
-            <Book history={this.props.history}></Book>
-            <Book history={this.props.history}></Book>
-            <Book history={this.props.history}></Book>
+            {this.props.books.map((book, i) => (
+              <Book
+                key={i}
+                title={book['title']}
+                isbn={book['isbn']}
+                author={book['author']}
+              />
+            ))}
           </tbody>
         </table>
       </Fragment>
