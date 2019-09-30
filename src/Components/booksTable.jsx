@@ -47,7 +47,9 @@ class BooksTable extends Component {
           <tbody>
             {this.props.books.map((book, i) => (
               <Book
+                history={this.props.history}
                 key={i}
+                id={book['@id']}
                 title={book['title']}
                 isbn={book['isbn']}
                 author={book['author']}
