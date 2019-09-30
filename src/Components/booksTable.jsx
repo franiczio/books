@@ -1,19 +1,40 @@
 import React, { Component, Fragment } from 'react';
 import Book from './book';
+
+import axios from 'axios';
+import * as bookActions from '../Actions/bookAction';
+import { ReactReduxContext, connect } from 'react-redux';
 class BooksTable extends Component {
   constructor(props) {
     super(props);
+    this.getAllBooksFromServer = this.getAllBooksFromServer.bind(this);
+    this.showState = this.showState.bind(this);
   }
 
   goToCreator = () => {
     this.props.history.push('/books/create');
   };
 
+  getAllBooksFromServer() {
+    axios.get('https://demo.h88.dev/books/').then(resp => {
+      this.props.getAllBooks(resp.data['hydra:member']);
+    });
+    console.log('state:');
+    console.log(this.props.books);
+  }
+  componentDidMount() {
+    this.getAllBooksFromServer();
+  }
+
+  showState() {
+    console.log(this.props.books);
+  }
+
   render() {
     return (
       <Fragment>
         <div>
-          <h1>Books</h1>
+          <h1 onClick={this.showState}>Books</h1>
           <a onClick={this.goToCreator}>ADD</a>
         </div>
         <table>
@@ -37,4 +58,13 @@ class BooksTable extends Component {
   }
 }
 
-export default BooksTable;
+const mapStateToProps = state => {
+  return state;
+};
+const mapActionsToProps = {
+  getAllBooks: bookActions.getAllBooks,
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(BooksTable);
