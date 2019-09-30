@@ -1,5 +1,6 @@
 import { GET_BOOKS } from '../Actions/bookAction';
 import { RESET_BOOKS } from '../Actions/bookAction';
+import { GET_ONE_BOOK } from '../Actions/bookAction';
 import axios from 'axios';
 
 const defaultBooks = [];
@@ -14,6 +15,10 @@ export default function bookReducer(state = defaultBooks, { type, payload }) {
     }
     case RESET_BOOKS: {
       return [];
+    }
+    case GET_ONE_BOOK: {
+      state = [...state, payload.book];
+      return state;
     }
     default: {
       return state;

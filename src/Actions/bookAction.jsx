@@ -1,6 +1,6 @@
-//hydra:member
 export const GET_BOOKS = 'getBooks';
 export const RESET_BOOKS = 'resetBooks';
+export const GET_ONE_BOOK = 'oneBook';
 
 export const getAllBooks = myBooks => {
   return {
@@ -12,5 +12,12 @@ export const getAllBooks = myBooks => {
 export const resetAllBooks = () => {
   return {
     type: RESET_BOOKS,
+  };
+};
+
+export const getOneBook = book => {
+  return {
+    type: GET_ONE_BOOK,
+    payload: { book: book },
   };
 };

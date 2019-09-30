@@ -1,11 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import BookReviews from './bookReviews';
+import axios from 'axios';
+import { ReactReduxContext, connect } from 'react-redux';
+import * as bookActions from '../Actions/bookAction';
+
 class BookReview extends Component {
   constructor(props) {
     super(props);
+    this.goBackToBooksSite = this.goBackToBooksSite.bind(this);
+    this.goToReviewCreator = this.goToReviewCreator.bind(this);
+    this.getBookFromServer = this.getBookFromServer.bind(this);
+  }
+
+  getBookFromServer() {
+    console.log(this.props.books['title']);
   }
 
   goBackToBooksSite = () => {
+    this.props.resetBooks();
     this.props.history.push('/');
   };
 
@@ -17,7 +29,7 @@ class BookReview extends Component {
     return (
       <Fragment>
         <div>
-          <h1>bookName</h1>
+          <h1 onClick={this.getBookFromServer}>bookName</h1>
           <a onClick={this.goBackToBooksSite}>BACK</a>
         </div>
         <div>
@@ -27,7 +39,7 @@ class BookReview extends Component {
                 <legend>
                   <span>title</span>
                 </legend>
-                <input placeholder="title" />
+                <input placeholder={this.props.books[0]} />
               </fieldset>
             </div>
             <div>
@@ -35,7 +47,7 @@ class BookReview extends Component {
                 <legend>
                   <span>isbn</span>
                 </legend>
-                <input placeholder="isbn" />
+                <input placeholder={this.props.books[1]} />
               </fieldset>
             </div>
             <div>
@@ -43,7 +55,7 @@ class BookReview extends Component {
                 <legend>
                   <span>description</span>
                 </legend>
-                <input placeholder="description" />
+                <input placeholder={this.props.books[2]} />
               </fieldset>
             </div>
             <div>
@@ -51,7 +63,7 @@ class BookReview extends Component {
                 <legend>
                   <span>author</span>
                 </legend>
-                <input placeholder="author" />
+                <input placeholder={this.props.books[3]} />
               </fieldset>
             </div>
             <div>
@@ -59,7 +71,7 @@ class BookReview extends Component {
                 <legend>
                   <span>publicationDate</span>
                 </legend>
-                <input placeholder="publicationDate" />
+                <input placeholder={this.props.books[4]} />
               </fieldset>
             </div>
             <button type="submit">UPDATE</button>
@@ -75,4 +87,13 @@ class BookReview extends Component {
   }
 }
 
-export default BookReview;
+const mapStateToProps = state => {
+  return state;
+};
+const mapActionsToProps = {
+  resetBooks: bookActions.resetAllBooks,
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(BookReview);
