@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import BookReviews from './bookReviews';
 import axios from 'axios';
 import { ReactReduxContext, connect } from 'react-redux';
-import * as bookActions from '../Actions/bookAction';
-import * as reviewActions from '../Actions/reviewAction';
+import * as bookActions from '../../Actions/bookAction';
+import * as reviewActions from '../../Actions/reviewAction';
 
 class BookReview extends Component {
   constructor(props) {
@@ -96,10 +96,8 @@ class BookReview extends Component {
       return (
         <Fragment>
           <div>
-            <h1 onClick={this.getBookFromServer}>
-              {this.props.books[0][0]['title']}
-            </h1>
-            <a onClick={this.goBackToBooksSite}>BACK</a>
+            <h1>{this.props.books[0][0]['title']}</h1>
+            <button onClick={this.goBackToBooksSite}>BACK</button>
           </div>
           <div>
             <form onSubmit={this.update}>
@@ -150,7 +148,7 @@ class BookReview extends Component {
           </div>
           <div>
             <h1>Book's reviews</h1>
-            <a onClick={this.goToReviewCreator}>CREATE</a>
+            <button onClick={this.goToReviewCreator}>CREATE</button>
           </div>
           <BookReviews />
         </Fragment>

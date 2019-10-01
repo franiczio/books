@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import * as bookActions from '../Actions/bookAction';
+import * as bookActions from '../../Actions/bookAction';
 import { ReactReduxContext, connect } from 'react-redux';
 import axios from 'axios';
 
@@ -37,7 +37,7 @@ class BookCreator extends Component {
       <Fragment>
         <div>
           <h1>Create book</h1>
-          <a onClick={this.goBackToBooksSite}>BACK</a>
+          <button onClick={this.goBackToBooksSite}>BACK</button>
         </div>
         <div>
           <form onSubmit={this.create}>
@@ -68,7 +68,7 @@ class BookCreator extends Component {
             <div>
               <fieldset>
                 <legend>publicationDate</legend>
-                <input placeholder="12-21-2019"></input>
+                <input defaultValue="2019-10-01T00:00:00+02:00"></input>
               </fieldset>
             </div>
             <button type="submit">CREATE</button>

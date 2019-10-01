@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import { Card, CardContent, CardHeader, Typography } from '@material-ui/core';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import BookReviewSite from './MainComponents/bookReviewSite';
-import CreateSite from './MainComponents/bookCreateSiteView';
-import ReviewSite from './MainComponents/reviewSite';
-import BooksSite from './MainComponents/booksSiteView';
+import BookReviewSite from './Components/MainComponents/bookReviewSite';
+import CreateSite from './Components/MainComponents/bookCreateSiteView';
+import ReviewSite from './Components/MainComponents/reviewSite';
+import BooksSite from './Components/MainComponents/booksSiteView';
 
 function App() {
   return (

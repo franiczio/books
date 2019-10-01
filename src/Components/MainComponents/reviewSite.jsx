@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Review from '../Components/reviewCreator';
+import Review from '../ReviewComponents/reviewCreator';
 class ReviewSite extends Component {
   constructor(props) {
     super(props);

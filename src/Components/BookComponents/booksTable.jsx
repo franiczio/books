@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Book from './book';
 import axios from 'axios';
-import * as bookActions from '../Actions/bookAction';
+import * as bookActions from '../../Actions/bookAction';
 import { ReactReduxContext, connect } from 'react-redux';
 class BooksTable extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class BooksTable extends Component {
       <Fragment>
         <div>
           <h1 onClick={this.showState}>Books</h1>
-          <a onClick={this.goToCreator}>ADD</a>
+          <button onClick={this.goToCreator}>ADD</button>
         </div>
         <table>
           <thead>

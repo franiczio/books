@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import BookReview from '../Components/bookReview';
+import BookReview from '../BookComponents/bookReview';
 class BookReviewSite extends Component {
   constructor(props) {
     super(props);

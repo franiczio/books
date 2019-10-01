@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import * as bookActions from '../Actions/bookAction';
+import * as bookActions from '../../Actions/bookAction';
 import { ReactReduxContext, connect } from 'react-redux';
 import axios from 'axios';
 
@@ -34,7 +34,7 @@ class Book extends Component {
           <td>{this.props.title}</td>
           <td>{this.props.author}</td>
           <td>
-            <a onClick={this.onClickShowBook}>SHOW</a>
+            <button onClick={this.onClickShowBook}>SHOW</button>
             <button onClick={this.deleteBookFromServer}>DELETE</button>
           </td>
         </tr>

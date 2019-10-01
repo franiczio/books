@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import SingleReview from './singleReview';
+import SingleReview from '../ReviewComponents/singleReview';
 import { ReactReduxContext, connect } from 'react-redux';
-import * as reviewActions from '../Actions/reviewAction';
+import * as reviewActions from '../../Actions/reviewAction';
 import axios from 'axios';
 
 class BooksReviews extends Component {

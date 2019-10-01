@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import * as bookActions from '../Actions/bookAction';
-import * as reviewActions from '../Actions/reviewAction';
+import * as bookActions from '../../Actions/bookAction';
+import * as reviewActions from '../../Actions/reviewAction';
 import { ReactReduxContext, connect } from 'react-redux';
 import axios from 'axios';
 
