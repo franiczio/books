@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import SingleReview from './singleReview';
-class BookReviews extends Component {
+import { ReactReduxContext, connect } from 'react-redux';
+import * as reviewActions from '../Actions/reviewAction';
+class BooksReviews extends Component {
   constructor(props) {
     super(props);
   }
@@ -18,10 +20,16 @@ class BookReviews extends Component {
               </tr>
             </thead>
             <tbody>
-              <SingleReview />
-              <SingleReview />
-              <SingleReview />
-              <SingleReview />
+              {this.props.reviews.map((review, i) => (
+                <SingleReview
+                  history={this.props.history}
+                  key={i}
+                  id={review['@id']}
+                  title={review['title']}
+                  isbn={review['isbn']}
+                  author={review['author']}
+                />
+              ))}
             </tbody>
           </table>
         </div>
@@ -30,4 +38,13 @@ class BookReviews extends Component {
   }
 }
 
-export default BookReviews;
+const mapStateToProps = state => {
+  return state;
+};
+const mapActionsToProps = {
+  getAllReviews: reviewActions.getAllReviews,
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(BooksReviews);

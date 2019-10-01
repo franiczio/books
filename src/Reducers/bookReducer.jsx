@@ -8,9 +8,6 @@ const defaultBooks = [];
 export default function bookReducer(state = defaultBooks, { type, payload }) {
   switch (type) {
     case GET_BOOKS: {
-      payload.books.forEach(element => {
-        state = [...state, element];
-      });
       return payload.books;
     }
     case RESET_BOOKS: {
