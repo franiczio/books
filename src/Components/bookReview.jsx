@@ -10,10 +10,11 @@ class BookReview extends Component {
     this.goBackToBooksSite = this.goBackToBooksSite.bind(this);
     this.goToReviewCreator = this.goToReviewCreator.bind(this);
     this.getBookFromServer = this.getBookFromServer.bind(this);
+    this.getBook = this.getBook.bind(this);
   }
 
   getBookFromServer() {
-    console.log(this.props.books[0][0]['title']);
+    console.log(window.location.href);
   }
 
   goBackToBooksSite = () => {
@@ -24,8 +25,21 @@ class BookReview extends Component {
   goToReviewCreator = () => {
     this.props.history.push('/books/1/reviews/create');
   };
+
+  getBook = () => {
+    let getPath =
+      'https://demo.h88.dev' +
+      '/' +
+      'books' +
+      '/' +
+      window.location.href.split('/')[4];
+    axios.get(getPath).then(resp => {
+      this.props.getBook(resp.data);
+    });
+  };
+
   componentDidMount() {
-    this.forceUpdate();
+    this.getBook();
   }
 
   render() {
@@ -106,6 +120,7 @@ const mapStateToProps = state => {
   return state;
 };
 const mapActionsToProps = {
+  getBook: bookActions.getOneBook,
   resetBooks: bookActions.resetAllBooks,
 };
 export default connect(

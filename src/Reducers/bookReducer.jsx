@@ -11,7 +11,7 @@ export default function bookReducer(state = defaultBooks, { type, payload }) {
       payload.books.forEach(element => {
         state = [...state, element];
       });
-      return state;
+      return payload.books;
     }
     case RESET_BOOKS: {
       return [];

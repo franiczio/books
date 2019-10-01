@@ -8,7 +8,6 @@ class Book extends Component {
     super(props);
     this.goToBookReview = this.goToBookReview.bind(this);
     this.onClickShowBook = this.onClickShowBook.bind(this);
-    this.getBookFromServer = this.getBookFromServer.bind(this);
     this.deleteBookFromServer = this.deleteBookFromServer.bind(this);
   }
 
@@ -22,23 +21,8 @@ class Book extends Component {
     this.props.resetOneBook(this.props.id);
   };
 
-  getBookFromServer = () => {
-    let getPath = 'https://demo.h88.dev' + this.props.id;
-    axios.get(getPath).then(resp => {
-      console.log(resp.data);
-      this.props.getBook(resp.data);
-      // this.props.getBook(resp.data['isbn']);
-      // this.props.getBook(resp.data['description']);
-      // this.props.getBook(resp.data['author']);
-      // this.props.getBook(resp.data['publicationDate']);
-    });
-  };
-
   onClickShowBook = () => {
     this.props.resetBooks();
-    // if (this.props.books.length === 0) {
-    this.getBookFromServer();
-    // }
     this.goToBookReview(this.props.id);
   };
 
