@@ -49,7 +49,9 @@ class BookReview extends Component {
   };
 
   goToReviewCreator = () => {
-    this.props.history.push('/books/1/reviews/create');
+    let id = this.props.books[0][0]['@id'];
+    let getPath = id + '/reviews/create';
+    this.props.history.push(getPath);
   };
 
   getBook = () => {

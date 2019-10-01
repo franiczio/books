@@ -7,10 +7,10 @@ class SingleReview extends Component {
     return (
       <Fragment>
         <tr>
-          <td>text1</td>
-          <td>text2</td>
-          <td>text3</td>
-          <td>text4</td>
+          <td>{this.props.body}</td>
+          <td>{this.props.rating}</td>
+          <td>{this.props.author}</td>
+          <td>{this.props.publicationDate}</td>
           <td>
             <button>DELETE</button>
           </td>

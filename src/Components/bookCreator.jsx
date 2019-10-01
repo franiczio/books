@@ -44,10 +44,7 @@ class BookCreator extends Component {
             <div>
               <fieldset>
                 <legend>title</legend>
-                <input
-                  ref={title => (this.el = title)}
-                  placeholder="title"
-                ></input>
+                <input placeholder="title"></input>
               </fieldset>
             </div>
             <div>

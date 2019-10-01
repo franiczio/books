@@ -3,7 +3,7 @@ import { RESET_REVIEWS } from '../Actions/reviewAction';
 import { GET_ONE_REVIEW, RESET_ONE_REVIEW } from '../Actions/reviewAction';
 import axios from 'axios';
 
-const defaultReviews = [1, 2, 3];
+const defaultReviews = [];
 
 export default function bookReducer(state = defaultReviews, { type, payload }) {
   switch (type) {
