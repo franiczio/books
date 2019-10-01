@@ -17,10 +17,8 @@ class BooksReviews extends Component {
 
   getAllReviewsFromThisBook() {
     var id = window.location.href.split('/')[4];
-    console.log(id);
     axios.get('https://demo.h88.dev/reviews/').then(resp => {
       var respTable = resp.data['hydra:member'];
-      console.log(resp.data['hydra:member'][0].book['@id'].split('/')[2]);
       let thisBookReviews = [];
       respTable.forEach(element => {
         if (element['book']['@id'].split('/')[2] === id) {
@@ -28,7 +26,6 @@ class BooksReviews extends Component {
         }
       });
       this.props.getAllReviews(thisBookReviews);
-      console.log(resp.data['hydra:member']);
     });
   }
   componentDidMount() {
