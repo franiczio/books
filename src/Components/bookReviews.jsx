@@ -17,6 +17,9 @@ class BooksReviews extends Component {
 
   getAllReviewsFromThisBook() {
     var id = window.location.href.split('/')[4];
+    if (id.slice(-1) === '?') {
+      id = id.substring(0, id.length - 1);
+    }
     axios.get('https://demo.h88.dev/reviews/').then(resp => {
       var respTable = resp.data['hydra:member'];
       let thisBookReviews = [];
