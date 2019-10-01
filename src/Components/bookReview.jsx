@@ -11,7 +11,33 @@ class BookReview extends Component {
     this.goToReviewCreator = this.goToReviewCreator.bind(this);
     this.getBookFromServer = this.getBookFromServer.bind(this);
     this.getBook = this.getBook.bind(this);
+    this.update = this.update.bind(this);
   }
+
+  update = event => {
+    let title = event.target[1].value;
+    let isbn = event.target[3].value;
+    let description = event.target[5].value;
+    let author = event.target[7].value;
+    let publicationDate = event.target[9].value;
+    var requestBody = {
+      isbn: isbn,
+      title: title,
+      description: description,
+      author: author,
+      publicationDate: publicationDate,
+      reviews: [],
+    };
+    console.log(requestBody);
+    let getPath =
+      'https://demo.h88.dev' +
+      '/' +
+      'books' +
+      '/' +
+      window.location.href.split('/')[4];
+    axios.patch(getPath, requestBody).then(resp => {});
+    this.forceUpdate();
+  };
 
   getBookFromServer() {
     console.log(window.location.href);
@@ -53,13 +79,13 @@ class BookReview extends Component {
             <a onClick={this.goBackToBooksSite}>BACK</a>
           </div>
           <div>
-            <form>
+            <form onSubmit={this.update}>
               <div>
                 <fieldset>
                   <legend>
                     <span>title</span>
                   </legend>
-                  <input placeholder={this.props.books[0][0]['title']} />
+                  <input defaultValue={this.props.books[0][0]['title']} />
                 </fieldset>
               </div>
               <div>
@@ -67,7 +93,7 @@ class BookReview extends Component {
                   <legend>
                     <span>isbn</span>
                   </legend>
-                  <input placeholder={this.props.books[0][0]['isbn']} />
+                  <input defaultValue={this.props.books[0][0]['isbn']} />
                 </fieldset>
               </div>
               <div>
@@ -75,7 +101,7 @@ class BookReview extends Component {
                   <legend>
                     <span>description</span>
                   </legend>
-                  <input placeholder={this.props.books[0][0]['description']} />
+                  <input defaultValue={this.props.books[0][0]['description']} />
                 </fieldset>
               </div>
               <div>
@@ -83,7 +109,7 @@ class BookReview extends Component {
                   <legend>
                     <span>author</span>
                   </legend>
-                  <input placeholder={this.props.books[0][0]['author']} />
+                  <input defaultValue={this.props.books[0][0]['author']} />
                 </fieldset>
               </div>
               <div>
@@ -92,7 +118,7 @@ class BookReview extends Component {
                     <span>publicationDate</span>
                   </legend>
                   <input
-                    placeholder={this.props.books[0][0]['publicationDate']}
+                    defaultValue={this.props.books[0][0]['publicationDate']}
                   />
                 </fieldset>
               </div>
