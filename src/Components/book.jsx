@@ -25,11 +25,12 @@ class Book extends Component {
   getBookFromServer = () => {
     let getPath = 'https://demo.h88.dev' + this.props.id;
     axios.get(getPath).then(resp => {
-      this.props.getBook(resp.data['title']);
-      this.props.getBook(resp.data['isbn']);
-      this.props.getBook(resp.data['description']);
-      this.props.getBook(resp.data['author']);
-      this.props.getBook(resp.data['publicationDate']);
+      console.log(resp.data);
+      this.props.getBook(resp.data);
+      // this.props.getBook(resp.data['isbn']);
+      // this.props.getBook(resp.data['description']);
+      // this.props.getBook(resp.data['author']);
+      // this.props.getBook(resp.data['publicationDate']);
     });
   };
 

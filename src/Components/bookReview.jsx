@@ -13,7 +13,7 @@ class BookReview extends Component {
   }
 
   getBookFromServer() {
-    console.log(this.props.books);
+    console.log(this.props.books[0][0]['title']);
   }
 
   goBackToBooksSite = () => {
@@ -24,66 +24,81 @@ class BookReview extends Component {
   goToReviewCreator = () => {
     this.props.history.push('/books/1/reviews/create');
   };
+  componentDidMount() {
+    this.forceUpdate();
+  }
 
   render() {
-    return (
-      <Fragment>
-        <div>
-          <h1 onClick={this.getBookFromServer}>{this.props.books[0]}</h1>
-          <a onClick={this.goBackToBooksSite}>BACK</a>
-        </div>
-        <div>
-          <form>
-            <div>
-              <fieldset>
-                <legend>
-                  <span>title</span>
-                </legend>
-                <input placeholder={this.props.books[0]} />
-              </fieldset>
-            </div>
-            <div>
-              <fieldset>
-                <legend>
-                  <span>isbn</span>
-                </legend>
-                <input placeholder={this.props.books[1]} />
-              </fieldset>
-            </div>
-            <div>
-              <fieldset>
-                <legend>
-                  <span>description</span>
-                </legend>
-                <input placeholder={this.props.books[2]} />
-              </fieldset>
-            </div>
-            <div>
-              <fieldset>
-                <legend>
-                  <span>author</span>
-                </legend>
-                <input placeholder={this.props.books[3]} />
-              </fieldset>
-            </div>
-            <div>
-              <fieldset>
-                <legend>
-                  <span>publicationDate</span>
-                </legend>
-                <input placeholder={this.props.books[4]} />
-              </fieldset>
-            </div>
-            <button type="submit">UPDATE</button>
-          </form>
-        </div>
-        <div>
-          <h1>Book's reviews</h1>
-          <a onClick={this.goToReviewCreator}>CREATE</a>
-        </div>
-        <BookReviews />
-      </Fragment>
-    );
+    if (this.props.books.length > 0) {
+      return (
+        <Fragment>
+          <div>
+            <h1 onClick={this.getBookFromServer}>
+              {this.props.books[0][0]['title']}
+            </h1>
+            <a onClick={this.goBackToBooksSite}>BACK</a>
+          </div>
+          <div>
+            <form>
+              <div>
+                <fieldset>
+                  <legend>
+                    <span>title</span>
+                  </legend>
+                  <input placeholder={this.props.books[0][0]['title']} />
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <legend>
+                    <span>isbn</span>
+                  </legend>
+                  <input placeholder={this.props.books[0][0]['isbn']} />
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <legend>
+                    <span>description</span>
+                  </legend>
+                  <input placeholder={this.props.books[0][0]['description']} />
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <legend>
+                    <span>author</span>
+                  </legend>
+                  <input placeholder={this.props.books[0][0]['author']} />
+                </fieldset>
+              </div>
+              <div>
+                <fieldset>
+                  <legend>
+                    <span>publicationDate</span>
+                  </legend>
+                  <input
+                    placeholder={this.props.books[0][0]['publicationDate']}
+                  />
+                </fieldset>
+              </div>
+              <button type="submit">UPDATE</button>
+            </form>
+          </div>
+          <div>
+            <h1>Book's reviews</h1>
+            <a onClick={this.goToReviewCreator}>CREATE</a>
+          </div>
+          <BookReviews />
+        </Fragment>
+      );
+    } else {
+      return (
+        <Fragment>
+          <h1 onClick={this.getBookFromServer}>aaa</h1>
+        </Fragment>
+      );
+    }
   }
 }
 

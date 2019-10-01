@@ -17,7 +17,7 @@ export default function bookReducer(state = defaultBooks, { type, payload }) {
       return [];
     }
     case GET_ONE_BOOK: {
-      state = [...state, payload.book];
+      state = [...state, [payload.book]];
       return state;
     }
     case RESET_ONE_BOOK: {
