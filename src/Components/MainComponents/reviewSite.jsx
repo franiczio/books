@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Review from '../Components/review';
+import Review from '../ReviewComponents/reviewCreator';
 class ReviewSite extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ class ReviewSite extends Component {
   render() {
     return (
       <Fragment>
-        <Review />
+        <Review history={this.props.history} />
       </Fragment>
     );
   }
