@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import BookReview from '../Components/bookReview';
+import BookReview from '../BookComponents/bookReview';
 class BookReviewSite extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +7,7 @@ class BookReviewSite extends Component {
   render() {
     return (
       <Fragment>
-        <BookReview />
+        <BookReview history={this.props.history} />
       </Fragment>
     );
   }
